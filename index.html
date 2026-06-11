@@ -17,7 +17,7 @@
 
         :root {
             --primary: #0f172a;
-            --accent: #f97316;
+            --accent: #dc2626;
             --light: #f8fafc;
             --gray: #64748b;
             --white: #ffffff;
@@ -260,6 +260,7 @@
             border-radius: 16px;
             transition: all 0.3s;
             border: 2px solid transparent;
+            cursor: pointer;
         }
 
         .service-card:hover {
@@ -461,6 +462,11 @@
         .instagram-section {
             padding: 6rem 2rem;
             background: white;
+            display: none;
+        }
+
+        .instagram-section.show {
+            display: block;
         }
 
         /* Category Tabs */
@@ -712,28 +718,28 @@
                     <p>Transform your basement into functional living space. Custom designs, quality finishes, and expert craftsmanship.</p>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" onclick="showGallery('bathrooms')">
                     <div class="service-icon">🛁</div>
                     <h3>Bathroom Remodeling</h3>
                     <p>Complete bathroom renovations from layout to final fixtures. Modern designs that add value to your home.</p>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" onclick="showGallery('flooring')">
                     <div class="service-icon">🪜</div>
                     <h3>Flooring Installation</h3>
                     <p>Hardwood, laminate, tile - we install it all. Precision installation with attention to every detail.</p>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" onclick="showGallery('stairs')">
                     <div class="service-icon">🚪</div>
                     <h3>Custom Stairs & Railings</h3>
                     <p>Beautiful, code-compliant stairs and railings that enhance your home's aesthetics and safety.</p>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">🏢</div>
-                    <h3>Commercial Projects</h3>
-                    <p>Professional construction services for businesses. On-time, on-budget, and built to last.</p>
+                <div class="service-card" onclick="showGallery('kitchen')">
+                    <div class="service-icon">🍳</div>
+                    <h3>Kitchen Remodeling</h3>
+                    <p>Complete kitchen transformations. Custom cabinets, countertops, and modern designs.</p>
                 </div>
 
                 <div class="service-card">
@@ -991,6 +997,33 @@
                 closeLightbox();
             }
         });
+
+        // Show Gallery and Filter by Category
+        function showGallery(category) {
+            const gallery = document.querySelector('.instagram-section');
+            const items = document.querySelectorAll('.gallery-item');
+            const tabs = document.querySelectorAll('.category-tab');
+            
+            // Show gallery section
+            gallery.classList.add('show');
+            
+            // Scroll to gallery
+            gallery.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Update active tab
+            tabs.forEach(tab => tab.classList.remove('active'));
+            const activeTab = Array.from(tabs).find(tab => tab.getAttribute('onclick').includes(category));
+            if (activeTab) activeTab.classList.add('active');
+            
+            // Filter items
+            items.forEach(item => {
+                if (item.getAttribute('data-category') === category) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
 
         // Gallery Filter Function
         function filterGallery(category) {
