@@ -266,10 +266,6 @@
             }
         }
 
-        .service-card-wrapper {
-            display: contents;
-        }
-
         .service-card {
             background: white;
             padding: 3rem;
@@ -490,12 +486,11 @@
             display: none;
             grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
             gap: 1rem;
-            margin-top: 1rem;
+            margin-top: 2rem;
             padding: 2rem;
             background: var(--light);
             border-radius: 12px;
             justify-content: center;
-            grid-column: 1 / -1;
         }
 
         .inline-gallery.show {
@@ -750,80 +745,28 @@
                     <p>Transform your basement into functional living space. Custom designs, quality finishes, and expert craftsmanship.</p>
                 </div>
 
-                <div class="service-card-wrapper">
-                    <div class="service-card" onclick="toggleInlineGallery('bathrooms-gallery')">
-                        <div class="service-icon">🛁</div>
-                        <h3>Bathroom Remodeling</h3>
-                        <p>Complete bathroom renovations from layout to final fixtures. Modern designs that add value to your home.</p>
-                    </div>
-                    <div class="inline-gallery" id="bathrooms-gallery">
-                        <div class="instagram-post gallery-item" onclick="openLightbox('images/project-6.jpg')">
-                            <img src="images/project-6.jpg" alt="Bathroom Renovation">
-                        </div>
-                        <div class="instagram-post gallery-item" onclick="openLightbox('images/project-7.jpg')">
-                            <img src="images/project-7.jpg" alt="Luxury Bathroom">
-                        </div>
-                        <div class="instagram-post gallery-item" onclick="openLightbox('images/project-11.jpg')">
-                            <img src="images/project-11.jpg" alt="Double Vanity Bathroom">
-                        </div>
-                    </div>
+                <div class="service-card" onclick="toggleInlineGallery('bathrooms-gallery')">
+                    <div class="service-icon">🛁</div>
+                    <h3>Bathroom Remodeling</h3>
+                    <p>Complete bathroom renovations from layout to final fixtures. Modern designs that add value to your home.</p>
                 </div>
 
-                <div class="service-card-wrapper">
-                    <div class="service-card" onclick="toggleInlineGallery('flooring-gallery')">
-                        <div class="service-icon">📐</div>
-                        <h3>Flooring Installation</h3>
-                        <p>Hardwood, laminate, tile - we install it all. Precision installation with attention to every detail.</p>
-                    </div>
-                    <div class="inline-gallery" id="flooring-gallery">
-                        <div class="instagram-post gallery-item" onclick="openLightbox('images/project-3.jpg')">
-                            <img src="images/project-3.jpg" alt="Flooring Installation">
-                        </div>
-                        <div class="instagram-post gallery-item" onclick="openLightbox('images/project-9.jpg')">
-                            <img src="images/project-9.jpg" alt="Flooring Project">
-                        </div>
-                        <div class="instagram-post gallery-item" onclick="openLightbox('images/project-10.jpg')">
-                            <img src="images/project-10.jpg" alt="Flooring Installation">
-                        </div>
-                        <div class="instagram-post gallery-item" onclick="openLightbox('images/project-12.jpg')">
-                            <img src="images/project-12.jpg" alt="Flooring">
-                        </div>
-                    </div>
+                <div class="service-card" onclick="toggleInlineGallery('flooring-gallery')">
+                    <div class="service-icon">📐</div>
+                    <h3>Flooring Installation</h3>
+                    <p>Hardwood, laminate, tile - we install it all. Precision installation with attention to every detail.</p>
                 </div>
 
-                <div class="service-card-wrapper">
-                    <div class="service-card" onclick="toggleInlineGallery('stairs-gallery')">
-                        <div class="service-icon">🪜</div>
-                        <h3>Custom Stairs & Railings</h3>
-                        <p>Beautiful, code-compliant stairs and railings that enhance your home's aesthetics and safety.</p>
-                    </div>
-                    <div class="inline-gallery" id="stairs-gallery">
-                        <div class="instagram-post gallery-item" onclick="openLightbox('images/project-1.jpg')">
-                            <img src="images/project-1.jpg" alt="Staircase Renovation">
-                        </div>
-                        <div class="instagram-post gallery-item" onclick="openLightbox('images/project-2.jpg')">
-                            <img src="images/project-2.jpg" alt="Stairs & Railings">
-                        </div>
-                        <div class="instagram-post gallery-item" onclick="openLightbox('images/project-5.jpg')">
-                            <img src="images/project-5.jpg" alt="Custom Stairs">
-                        </div>
-                    </div>
+                <div class="service-card" onclick="toggleInlineGallery('stairs-gallery')">
+                    <div class="service-icon">🪜</div>
+                    <h3>Custom Stairs & Railings</h3>
+                    <p>Beautiful, code-compliant stairs and railings that enhance your home's aesthetics and safety.</p>
                 </div>
 
-                <div class="service-card-wrapper">
-                    <div class="service-card" onclick="toggleInlineGallery('kitchen-gallery')">
-                        <div class="service-icon">🍳</div>
-                        <h3>Kitchen Remodeling</h3>
-                        <p>Complete kitchen transformations. Custom cabinets, countertops, and modern designs.</p>
-                    </div>
-                    <div class="inline-gallery" id="kitchen-gallery">
-                        <div class="instagram-post gallery-item" onclick="openLightbox('images/project-4.jpg')">
-                            <img src="images/project-4.jpg" alt="Kitchen Renovation">
-                        </div>
-                        <div class="instagram-post gallery-item" onclick="openLightbox('images/project-8.jpg')">
-                            <img src="images/project-8.jpg" alt="Kitchen Remodel">
-                        </div>
-                    </div>
+                <div class="service-card" onclick="toggleInlineGallery('kitchen-gallery')">
+                    <div class="service-icon">🍳</div>
+                    <h3>Kitchen Remodeling</h3>
+                    <p>Complete kitchen transformations. Custom cabinets, countertops, and modern designs.</p>
                 </div>
 
                 <div class="service-card">
@@ -832,13 +775,55 @@
                     <p>Complete home transformation services. We handle every trade and coordinate the entire project.</p>
                 </div>
             </div>
-                <div class="service-card" onclick="showGallery('stairs')">
-                    <div class="service-icon">🪜</div>
-                    <h3>Custom Stairs & Railings</h3>
-                    <p>Beautiful, code-compliant stairs and railings that enhance your home's aesthetics and safety.</p>
-                </div>
 
-                <div class="service-card" onclick="showGallery('kitchen')">
+            <!-- Inline Galleries (outside grid) -->
+            <div class="inline-gallery" id="bathrooms-gallery">
+                <div class="instagram-post gallery-item" onclick="openLightbox('images/project-6.jpg')">
+                    <img src="images/project-6.jpg" alt="Bathroom Renovation">
+                </div>
+                <div class="instagram-post gallery-item" onclick="openLightbox('images/project-7.jpg')">
+                    <img src="images/project-7.jpg" alt="Luxury Bathroom">
+                </div>
+                <div class="instagram-post gallery-item" onclick="openLightbox('images/project-11.jpg')">
+                    <img src="images/project-11.jpg" alt="Double Vanity Bathroom">
+                </div>
+            </div>
+
+            <div class="inline-gallery" id="flooring-gallery">
+                <div class="instagram-post gallery-item" onclick="openLightbox('images/project-3.jpg')">
+                    <img src="images/project-3.jpg" alt="Flooring Installation">
+                </div>
+                <div class="instagram-post gallery-item" onclick="openLightbox('images/project-9.jpg')">
+                    <img src="images/project-9.jpg" alt="Flooring Project">
+                </div>
+                <div class="instagram-post gallery-item" onclick="openLightbox('images/project-10.jpg')">
+                    <img src="images/project-10.jpg" alt="Flooring Installation">
+                </div>
+                <div class="instagram-post gallery-item" onclick="openLightbox('images/project-12.jpg')">
+                    <img src="images/project-12.jpg" alt="Flooring">
+                </div>
+            </div>
+
+            <div class="inline-gallery" id="stairs-gallery">
+                <div class="instagram-post gallery-item" onclick="openLightbox('images/project-1.jpg')">
+                    <img src="images/project-1.jpg" alt="Staircase Renovation">
+                </div>
+                <div class="instagram-post gallery-item" onclick="openLightbox('images/project-2.jpg')">
+                    <img src="images/project-2.jpg" alt="Stairs & Railings">
+                </div>
+                <div class="instagram-post gallery-item" onclick="openLightbox('images/project-5.jpg')">
+                    <img src="images/project-5.jpg" alt="Custom Stairs">
+                </div>
+            </div>
+
+            <div class="inline-gallery" id="kitchen-gallery">
+                <div class="instagram-post gallery-item" onclick="openLightbox('images/project-4.jpg')">
+                    <img src="images/project-4.jpg" alt="Kitchen Renovation">
+                </div>
+                <div class="instagram-post gallery-item" onclick="openLightbox('images/project-8.jpg')">
+                    <img src="images/project-8.jpg" alt="Kitchen Remodel">
+                </div>
+            </div>
                     <div class="service-icon">🍳</div>
                     <h3>Kitchen Remodeling</h3>
                     <p>Complete kitchen transformations. Custom cabinets, countertops, and modern designs.</p>
