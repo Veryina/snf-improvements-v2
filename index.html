@@ -481,13 +481,16 @@
             display: block;
         }
 
+        /* Gallery Container */
+        #gallery-container {
+            min-height: 50px;
+        }
+
         /* Inline Gallery */
         .inline-gallery {
             display: none;
-            grid-column: 1 / -1;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 250px));
-            gap: 1rem;
-            margin-top: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
+            gap: 1.5rem;
             padding: 2rem;
             background: var(--light);
             border-radius: 12px;
@@ -750,12 +753,39 @@
                     <p>Transform your basement into functional living space. Custom designs, quality finishes, and expert craftsmanship.</p>
                 </div>
 
-                <div class="service-card" onclick="toggleInlineGallery('bathrooms-gallery')">
+                <div class="service-card" onclick="showGallery('bathrooms-gallery')">
                     <div class="service-icon">🛁</div>
                     <h3>Bathroom Remodeling</h3>
                     <p>Complete bathroom renovations from layout to final fixtures. Modern designs that add value to your home.</p>
                 </div>
 
+                <div class="service-card" onclick="showGallery('flooring-gallery')">
+                    <div class="service-icon">📐</div>
+                    <h3>Flooring Installation</h3>
+                    <p>Hardwood, laminate, tile - we install it all. Precision installation with attention to every detail.</p>
+                </div>
+
+                <div class="service-card" onclick="showGallery('stairs-gallery')">
+                    <div class="service-icon">🪜</div>
+                    <h3>Custom Stairs & Railings</h3>
+                    <p>Beautiful, code-compliant stairs and railings that enhance your home's aesthetics and safety.</p>
+                </div>
+
+                <div class="service-card" onclick="showGallery('kitchen-gallery')">
+                    <div class="service-icon">🍳</div>
+                    <h3>Kitchen Remodeling</h3>
+                    <p>Complete kitchen transformations. Custom cabinets, countertops, and modern designs.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔨</div>
+                    <h3>Full Home Renovations</h3>
+                    <p>Complete home transformation services. We handle every trade and coordinate the entire project.</p>
+                </div>
+            </div>
+
+            <!-- Gallery Container (outside grid) -->
+            <div id="gallery-container" style="margin-top: 3rem;">
                 <div class="inline-gallery" id="bathrooms-gallery">
                     <div class="instagram-post gallery-item" onclick="openLightbox('images/project-6.jpg')">
                         <img src="images/project-6.jpg" alt="Bathroom Renovation">
@@ -766,12 +796,6 @@
                     <div class="instagram-post gallery-item" onclick="openLightbox('images/project-11.jpg')">
                         <img src="images/project-11.jpg" alt="Double Vanity Bathroom">
                     </div>
-                </div>
-
-                <div class="service-card" onclick="toggleInlineGallery('flooring-gallery')">
-                    <div class="service-icon">📐</div>
-                    <h3>Flooring Installation</h3>
-                    <p>Hardwood, laminate, tile - we install it all. Precision installation with attention to every detail.</p>
                 </div>
 
                 <div class="inline-gallery" id="flooring-gallery">
@@ -789,12 +813,6 @@
                     </div>
                 </div>
 
-                <div class="service-card" onclick="toggleInlineGallery('stairs-gallery')">
-                    <div class="service-icon">🪜</div>
-                    <h3>Custom Stairs & Railings</h3>
-                    <p>Beautiful, code-compliant stairs and railings that enhance your home's aesthetics and safety.</p>
-                </div>
-
                 <div class="inline-gallery" id="stairs-gallery">
                     <div class="instagram-post gallery-item" onclick="openLightbox('images/project-1.jpg')">
                         <img src="images/project-1.jpg" alt="Staircase Renovation">
@@ -807,12 +825,6 @@
                     </div>
                 </div>
 
-                <div class="service-card" onclick="toggleInlineGallery('kitchen-gallery')">
-                    <div class="service-icon">🍳</div>
-                    <h3>Kitchen Remodeling</h3>
-                    <p>Complete kitchen transformations. Custom cabinets, countertops, and modern designs.</p>
-                </div>
-
                 <div class="inline-gallery" id="kitchen-gallery">
                     <div class="instagram-post gallery-item" onclick="openLightbox('images/project-4.jpg')">
                         <img src="images/project-4.jpg" alt="Kitchen Renovation">
@@ -821,37 +833,7 @@
                         <img src="images/project-8.jpg" alt="Kitchen Remodel">
                     </div>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🔨</div>
-                    <h3>Full Home Renovations</h3>
-                    <p>Complete home transformation services. We handle every trade and coordinate the entire project.</p>
-                </div>
             </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section class="reviews">
-        <div class="container">
-            <div class="reviews-header">
-                <div class="section-tag">Client Reviews</div>
-                <h2 class="section-title">What Our Clients Say</h2>
-                <div class="trust-badge">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <div>
-                        <div class="rating-text">5.0 out of 5</div>
-                        <p style="color: var(--gray); margin: 0;">Based on 21+ reviews on TrustedPros</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="review-text">"Sivo did a complete renovation on our bathroom and installed hardwood floors. I was so impressed by his professionalism, his courtesy, his workmanship, and his prices. He is very humble and truly takes pride in his work. I would recommend him to anyone."</p>
-                    <div class="reviewer">
                         <div class="reviewer-initial">F</div>
                         <div class="reviewer-info">
                             <h4>Francesca</h4>
@@ -981,8 +963,8 @@
             }
         });
 
-        // Toggle Inline Gallery
-        function toggleInlineGallery(galleryId) {
+        // Show Gallery (for service card clicks)
+        function showGallery(galleryId) {
             const gallery = document.getElementById(galleryId);
             const allGalleries = document.querySelectorAll('.inline-gallery');
             
