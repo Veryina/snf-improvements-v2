@@ -463,6 +463,49 @@
             background: white;
         }
 
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 3rem auto;
+            max-width: 900px;
+        }
+
+        .category-tab {
+            padding: 0.75rem 2rem;
+            background: white;
+            border: 2px solid var(--gray);
+            border-radius: 50px;
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .category-tab:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .category-tab.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
+        }
+
+        /* Gallery Items */
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item.hidden {
+            display: none;
+        }
+
         .instagram-feed {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -607,7 +650,7 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">SNF <span>Improvements</span></div>
+            <div class="logo">SNF <span>Improvements</span> Inc</div>
             <div class="nav-cta">
                 <a href="tel:+14167023303" class="phone-link">📞 (416) 702-3303</a>
                 <a href="mailto:snfimprovement@gmail.com" class="cta-btn">Get Quote</a>
@@ -760,84 +803,93 @@
         </div>
     </section>
 
-    <!-- Instagram Section -->
+    <!-- Project Gallery Section -->
     <section class="instagram-section">
         <div class="container">
             <div class="section-header">
                 <div class="section-tag">Our Work</div>
-                <h2 class="section-title">Recent Projects</h2>
-                <p class="section-description">See our latest renovations and transformations. Click any image to view full size.</p>
+                <h2 class="section-title">Project Gallery</h2>
+                <p class="section-description">Browse our completed projects by category. Click any image to view full size.</p>
+            </div>
+            
+            <!-- Category Filter Tabs -->
+            <div class="category-tabs">
+                <button class="category-tab active" onclick="filterGallery('all')">All Projects</button>
+                <button class="category-tab" onclick="filterGallery('bathrooms')">Bathrooms</button>
+                <button class="category-tab" onclick="filterGallery('stairs')">Stairs & Railings</button>
+                <button class="category-tab" onclick="filterGallery('flooring')">Flooring</button>
+                <button class="category-tab" onclick="filterGallery('general')">Renovations</button>
             </div>
             
             <!-- Project Gallery -->
-            <div class="instagram-feed">
-                <div class="instagram-post" onclick="openLightbox('images/project-1.jpg')">
+            <div class="instagram-feed" id="gallery-grid">
+                <div class="instagram-post gallery-item" data-category="stairs" onclick="openLightbox('images/project-1.jpg')">
                     <img src="images/project-1.jpg" alt="Staircase Renovation - SNF Improvements" loading="lazy">
                     <div class="instagram-overlay">
                         <span>🔍 Click to Enlarge</span>
                     </div>
                 </div>
-                <div class="instagram-post" onclick="openLightbox('images/project-2.jpg')">
-                    <img src="images/project-2.jpg" alt="Renovation Project - SNF Improvements" loading="lazy">
+                <div class="instagram-post gallery-item" data-category="flooring" onclick="openLightbox('images/project-2.jpg')">
+                    <img src="images/project-2.jpg" alt="Flooring Installation - SNF Improvements" loading="lazy">
                     <div class="instagram-overlay">
                         <span>🔍 Click to Enlarge</span>
                     </div>
                 </div>
-                <div class="instagram-post" onclick="openLightbox('images/project-3.jpg')">
-                    <img src="images/project-3.jpg" alt="Home Improvement - SNF Improvements" loading="lazy">
+                <div class="instagram-post gallery-item" data-category="general" onclick="openLightbox('images/project-3.jpg')">
+                    <img src="images/project-3.jpg" alt="Home Renovation - SNF Improvements" loading="lazy">
                     <div class="instagram-overlay">
                         <span>🔍 Click to Enlarge</span>
                     </div>
                 </div>
-                <div class="instagram-post" onclick="openLightbox('images/project-4.jpg')">
-                    <img src="images/project-4.jpg" alt="Renovation Work - SNF Improvements" loading="lazy">
+                <div class="instagram-post gallery-item" data-category="flooring" onclick="openLightbox('images/project-4.jpg')">
+                    <img src="images/project-4.jpg" alt="Flooring Project - SNF Improvements" loading="lazy">
                     <div class="instagram-overlay">
                         <span>🔍 Click to Enlarge</span>
                     </div>
                 </div>
-                <div class="instagram-post" onclick="openLightbox('images/project-5.jpg')">
-                    <img src="images/project-5.jpg" alt="Construction Project - SNF Improvements" loading="lazy">
+                <div class="instagram-post gallery-item" data-category="general" onclick="openLightbox('images/project-5.jpg')">
+                    <img src="images/project-5.jpg" alt="Renovation Project - SNF Improvements" loading="lazy">
                     <div class="instagram-overlay">
                         <span>🔍 Click to Enlarge</span>
                     </div>
                 </div>
-                <div class="instagram-post" onclick="openLightbox('images/project-6.jpg')">
-                    <img src="images/project-6.jpg" alt="Home Renovation - SNF Improvements" loading="lazy">
+                <div class="instagram-post gallery-item" data-category="flooring" onclick="openLightbox('images/project-6.jpg')">
+                    <img src="images/project-6.jpg" alt="Flooring Installation - SNF Improvements" loading="lazy">
                     <div class="instagram-overlay">
                         <span>🔍 Click to Enlarge</span>
                     </div>
                 </div>
-                <div class="instagram-post" onclick="openLightbox('images/project-7.jpg')">
+                <div class="instagram-post gallery-item" data-category="bathrooms" onclick="openLightbox('images/project-7.jpg')">
                     <img src="images/project-7.jpg" alt="Luxury Bathroom Renovation - SNF Improvements" loading="lazy">
                     <div class="instagram-overlay">
                         <span>🔍 Click to Enlarge</span>
                     </div>
                 </div>
-                <div class="instagram-post" onclick="openLightbox('images/project-8.jpg')">
+                <div class="instagram-post gallery-item" data-category="bathrooms" onclick="openLightbox('images/project-8.jpg')">
                     <img src="images/project-8.jpg" alt="Bathroom Remodel - SNF Improvements" loading="lazy">
                     <div class="instagram-overlay">
                         <span>🔍 Click to Enlarge</span>
                     </div>
                 </div>
-                <div class="instagram-post" onclick="openLightbox('images/project-9.jpg')">
-                    <img src="images/project-9.jpg" alt="Kitchen Renovation - SNF Improvements" loading="lazy">
+                <div class="instagram-post gallery-item" data-category="bathrooms" onclick="openLightbox('images/project-9.jpg')">
+                    <img src="images/project-9.jpg" alt="Bathroom Renovation - SNF Improvements" loading="lazy">
                     <div class="instagram-overlay">
                         <span>🔍 Click to Enlarge</span>
                     </div>
                 </div>
-                <div class="instagram-post" onclick="openLightbox('images/project-10.jpg')">
+                <div class="instagram-post gallery-item" data-category="general" onclick="openLightbox('images/project-10.jpg')">
                     <img src="images/project-10.jpg" alt="Basement Renovation - SNF Improvements" loading="lazy">
                     <div class="instagram-overlay">
                         <span>🔍 Click to Enlarge</span>
                     </div>
                 </div>
-                <div class="instagram-post" onclick="openLightbox('images/project-11.jpg')">
+                <div class="instagram-post gallery-item" data-category="bathrooms" onclick="openLightbox('images/project-11.jpg')">
                     <img src="images/project-11.jpg" alt="Double Vanity Bathroom - SNF Improvements" loading="lazy">
                     <div class="instagram-overlay">
                         <span>🔍 Click to Enlarge</span>
                     </div>
                 </div>
-                <div class="instagram-post" onclick="openLightbox('images/project-12.jpg')">
+                <div class="instagram-post gallery-item" data-category="bathrooms" onclick="openLightbox('images/project-12.jpg')">
                     <img src="images/project-12.jpg" alt="Master Bathroom - SNF Improvements" loading="lazy">
                     <div class="instagram-overlay">
                         <span>🔍 Click to Enlarge</span>
@@ -938,6 +990,29 @@
                 closeLightbox();
             }
         });
+
+        // Gallery Filter Function
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const tabs = document.querySelectorAll('.category-tab');
+            
+            // Update active tab
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter items
+            items.forEach(item => {
+                if (category === 'all') {
+                    item.classList.remove('hidden');
+                } else {
+                    if (item.getAttribute('data-category') === category) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                }
+            });
+        }
     </script>
 </body>
 </html>
