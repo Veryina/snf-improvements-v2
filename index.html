@@ -252,6 +252,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
+            position: relative;
         }
 
         @media (max-width: 1100px) {
@@ -357,6 +358,9 @@
             padding: 2.5rem;
             border-radius: 16px;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .review-stars {
@@ -369,6 +373,7 @@
             color: var(--primary);
             line-height: 1.8;
             margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
 
         .reviewer {
@@ -501,16 +506,30 @@
         /* Inline Gallery */
         .inline-gallery {
             display: none;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.5rem;
             padding: 2rem;
             background: var(--light);
             border-radius: 12px;
-            justify-content: center;
+            margin-top: 2rem;
+            width: 100%;
+            grid-column: 1 / -1;
         }
 
         .inline-gallery.show {
             display: grid;
+        }
+
+        @media (max-width: 768px) {
+            .inline-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+                padding: 1rem;
+            }
+
+            .instagram-post {
+                border-radius: 8px;
+            }
         }
 
         /* Category Tabs */
@@ -817,34 +836,7 @@
                     <h3>Bathroom Remodeling</h3>
                     <p>Complete bathroom renovations from layout to final fixtures. Modern designs that add value to your home.</p>
                 </div>
-
-                <div class="service-card" onclick="showGallery('flooring-gallery')">
-                    <div class="service-icon">📐</div>
-                    <h3>Flooring Installation</h3>
-                    <p>Hardwood, laminate, tile - we install it all. Precision installation with attention to every detail.</p>
-                </div>
-
-                <div class="service-card" onclick="showGallery('stairs-gallery')">
-                    <div class="service-icon">🪜</div>
-                    <h3>Custom Stairs & Railings</h3>
-                    <p>Beautiful, code-compliant stairs and railings that enhance your home's aesthetics and safety.</p>
-                </div>
-
-                <div class="service-card" onclick="showGallery('kitchen-gallery')">
-                    <div class="service-icon">🍳</div>
-                    <h3>Kitchen Remodeling</h3>
-                    <p>Complete kitchen transformations. Custom cabinets, countertops, and modern designs.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🔨</div>
-                    <h3>Full Home Renovations</h3>
-                    <p>Complete home transformation services. We handle every trade and coordinate the entire project.</p>
-                </div>
-            </div>
-
-            <!-- Gallery Container (outside grid) -->
-            <div id="gallery-container" style="margin-top: 3rem;">
+                
                 <div class="inline-gallery" id="bathrooms-gallery">
                     <div class="instagram-post gallery-item" onclick="openLightbox('images/project-6.jpg')">
                         <img src="images/project-6.jpg" alt="Bathroom Renovation">
@@ -857,6 +849,12 @@
                     </div>
                 </div>
 
+                <div class="service-card" onclick="showGallery('flooring-gallery')">
+                    <div class="service-icon">📐</div>
+                    <h3>Flooring Installation</h3>
+                    <p>Hardwood, laminate, tile - we install it all. Precision installation with attention to every detail.</p>
+                </div>
+                
                 <div class="inline-gallery" id="flooring-gallery">
                     <div class="instagram-post gallery-item" onclick="openLightbox('images/project-3.jpg')">
                         <img src="images/project-3.jpg" alt="Flooring Installation">
@@ -872,6 +870,12 @@
                     </div>
                 </div>
 
+                <div class="service-card" onclick="showGallery('stairs-gallery')">
+                    <div class="service-icon">🪜</div>
+                    <h3>Custom Stairs & Railings</h3>
+                    <p>Beautiful, code-compliant stairs and railings that enhance your home's aesthetics and safety.</p>
+                </div>
+                
                 <div class="inline-gallery" id="stairs-gallery">
                     <div class="instagram-post gallery-item" onclick="openLightbox('images/project-1.jpg')">
                         <img src="images/project-1.jpg" alt="Staircase Renovation">
@@ -884,6 +888,12 @@
                     </div>
                 </div>
 
+                <div class="service-card" onclick="showGallery('kitchen-gallery')">
+                    <div class="service-icon">🍳</div>
+                    <h3>Kitchen Remodeling</h3>
+                    <p>Complete kitchen transformations. Custom cabinets, countertops, and modern designs.</p>
+                </div>
+                
                 <div class="inline-gallery" id="kitchen-gallery">
                     <div class="instagram-post gallery-item" onclick="openLightbox('images/project-4.jpg')">
                         <img src="images/project-4.jpg" alt="Kitchen Renovation">
@@ -891,6 +901,12 @@
                     <div class="instagram-post gallery-item" onclick="openLightbox('images/project-8.jpg')">
                         <img src="images/project-8.jpg" alt="Kitchen Remodel">
                     </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔨</div>
+                    <h3>Full Home Renovations</h3>
+                    <p>Complete home transformation services. We handle every trade and coordinate the entire project.</p>
                 </div>
             </div>
                         <div class="reviewer-initial">F</div>
